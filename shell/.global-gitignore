@@ -15,6 +15,7 @@ Thumbs.db
 
 # vs code
 .vscode
+*.code-workspace
 
 # Sublime Text
 *.sublime-project

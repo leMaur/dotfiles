@@ -32,8 +32,10 @@ alias copykey='command cat ~/.ssh/id_rsa.pub | pbcopy'
 alias copyedkey='command cat ~/.ssh/id_ed25519.pub | pbcopy'
 alias newlaravel='composer create-project laravel/laravel'
 alias r='vendor/bin/rector process'
+alias xcodei="xcode-select --install"
+alias xcodeu="softwareupdate --install xcode-select"
 
-composerlink() {
+clink() {
     composer config repositories.$2 '{"type": "path", "url": "'$1'"}'
 }
 

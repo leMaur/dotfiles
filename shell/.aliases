@@ -6,8 +6,10 @@ alias tinker="php artisan tinker"
 alias vapor="vendor/bin/vapor"
 alias sites="cd ~/Sites"
 alias an="vendor/bin/phpstan analyse --memory-limit=2G"
+alias fo="vendor/bin/php-cs-fixer fix"
 alias phpunit="vendor/bin/phpunit"
 alias phpunitw="phpunit-watcher watch"
+alias pest="vendor/bin/pest"
 alias art="php artisan"
 alias c="composer"
 alias cu="c update"
@@ -30,8 +32,9 @@ alias copykey='command cat ~/.ssh/id_rsa.pub | pbcopy'
 alias copyedkey='command cat ~/.ssh/id_ed25519.pub | pbcopy'
 alias newlaravel='composer create-project laravel/laravel'
 alias r='vendor/bin/rector process'
-composer-link() {
-    composer config repositories.local '{"type": "path", "url": "'$1'"}' --file composer.json
+
+composerlink() {
+    composer config repositories.$2 '{"type": "path", "url": "'$1'"}'
 }
 
 

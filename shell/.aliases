@@ -27,6 +27,8 @@ alias p="phpunit"
 alias pp="php artisan test --parallel"
 alias pf="phpunit --filter "
 alias d="php artisan dusk"
+alias df="php artisan dusk --filter "
+alias dff="php artisan dusk:fails"
 alias sshconfig="vi ~/.ssh/config"
 alias copykey='command cat ~/.ssh/id_rsa.pub | pbcopy'
 alias copyedkey='command cat ~/.ssh/id_ed25519.pub | pbcopy'
@@ -39,6 +41,22 @@ clink() {
     composer config repositories.$2 '{"type": "path", "url": "'$1'"}'
 }
 
+ufork() {
+    git fetch upstream &&
+    git checkout $1 &&
+    git rebase upstream/$1 &&
+    git push -f origin $1
+}
+
+commit () {
+    commitMessage="$1"
+    if [ "$commitMessage" = "" ]
+    then
+        commitMessage="wip"
+    fi
+    git add .
+    eval "git commit -a -m '${commitMessage}'"
+}
 
 # JavaScript
 alias jest="./node_modules/.bin/jest"
@@ -58,7 +76,7 @@ alias o="open ."
 alias l="ls -laF"
 
 # PhpStorm
-alias phpstorm='open -a /Applications/PhpStorm.app "`pwd`"'
+alias phpstorm='open -a /Users/maurizio/Applications/JetBrains\ Toolbox/PhpStorm\ for\ Apple\ Silicon.app "`pwd`"'
 
 # PHP version
 alias switch-php80="brew unlink php@7.4 && brew link --overwrite --force php"

@@ -55,7 +55,7 @@ done
 unset file
 
 # Load rvm
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 export PATH="$PATH:$HOME/.rvm/bin"
 . $HOME/.dotfiles/shell/z.sh
@@ -82,13 +82,20 @@ export XDEBUG_CONFIG="idekey=VSCODE"
 # Enable autosuggestions
 # source ~/.dotfiles/misc/oh-my-zsh-custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# Load Git completion
+if [ -f $HOME/.dotfiles/shell/.git-completion-zsh/git-completion.bash ]; then
+    zstyle ':completion:*:*:git:*' script $HOME/.dotfiles/shell/.git-completion-zsh/git-completion.bash
+    fpath=($HOME/.dotfiles/shell/.git-completion-zsh $fpath)
+    autoload -Uz compinit && compinit
+fi
 
 # Extra paths
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 export PATH=/usr/local/bin:$PATH
+export PATH=/opt/homebrew/bin:$PATH
 export PATH="$HOME/.yarn/bin:$PATH"
-export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
-export PATH="/usr/local/opt/node@8/bin:$PATH"
+export PATH="/opt/homebrew/opt/mysql@/bin:$PATH"
+export PATH="/opt/homebrew/opt/node@/bin:$PATH"
 
-export PATH="/usr/local/opt/node@12/bin:$PATH"
-export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
+export PATH="/opt/homebrew/opt/node@/bin:$PATH"
+export PATH="/opt/homebrew/opt/imagemagick@/bin:$PATH"

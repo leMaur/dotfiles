@@ -99,3 +99,7 @@ export PATH="/opt/homebrew/opt/node@/bin:$PATH"
 
 export PATH="/opt/homebrew/opt/node@/bin:$PATH"
 export PATH="/opt/homebrew/opt/imagemagick@/bin:$PATH"
+export PATH="/opt/homebrew/opt/icu4c/bin:$PATH"
+export PATH="/opt/homebrew/opt/icu4c/sbin:$PATH"
+export PATH="/opt/homebrew/opt/icu4c/bin:$PATH"
+export PATH="/opt/homebrew/opt/icu4c/sbin:$PATH"

@@ -43,6 +43,7 @@ alias newlaravel='composer create-project laravel/laravel'
 alias r='vendor/bin/rector process'
 alias xcodei="xcode-select --install"
 alias xcodeu="softwareupdate --install xcode-select"
+alias sail="bash vendor/bin/sail"
 
 # JavaScript
 alias jest="./node_modules/.bin/jest"

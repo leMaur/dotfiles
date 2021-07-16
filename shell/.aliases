@@ -40,10 +40,11 @@ alias sshconfig="vi ~/.ssh/config"
 alias copykey='command cat ~/.ssh/id_rsa.pub | pbcopy'
 alias copyedkey='command cat ~/.ssh/id_ed25519.pub | pbcopy'
 alias newlaravel='composer create-project laravel/laravel'
-alias r='vendor/bin/rector process'
+alias rector='vendor/bin/rector process'
 alias xcodei="xcode-select --install"
 alias xcodeu="softwareupdate --install xcode-select"
 alias sail="bash vendor/bin/sail"
+alias findport="lsof -i -P -n | grep LISTEN"
 
 # JavaScript
 alias jest="./node_modules/.bin/jest"

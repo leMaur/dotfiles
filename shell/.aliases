@@ -1,6 +1,7 @@
 # PHP
 alias mix="yarn dev"
 alias prod="yarn prod"
+alias jit="npm run watch"
 alias psql="sudo -u postgres psql"
 alias art="php artisan"
 alias tinker="php artisan tinker"

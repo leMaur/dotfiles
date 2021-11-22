@@ -134,6 +134,17 @@ function clink() {
     composer config repositories.$2 '{"type": "path", "url": "'$1'"}'
 }
 
+function link:foundation() {
+    composer config repositories.$2 '{"type": "path", "url": "'$1'"}' &&
+    composer require arkecosystem/foundation --ignore-platform-reqs -W &&
+    rm -rf $1/node_modules &&
+    ln -s $(pwd)/node_modules $1/node_modules
+}
+
+function unlink:foundation() {
+    unlink $1/node_modules
+}
+
 function ufork() {
     git fetch upstream &&
     git checkout $1 &&

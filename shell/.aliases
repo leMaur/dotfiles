@@ -71,7 +71,7 @@ alias o="open ."
 alias l="ls -laF"
 
 # PhpStorm
-alias phpstorm='open -a /Users/maurizio/Applications/JetBrains\ Toolbox/PhpStorm\ for\ Apple\ Silicon.app "`pwd`"'
+alias phpstorm='open -a /Users/maurizio/Applications/JetBrains\ Toolbox/PhpStorm.app "`pwd`"'
 
 # PHP version
 alias switch-php80="brew unlink php@7.4 && brew link --overwrite --force php"

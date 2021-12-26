@@ -207,3 +207,19 @@ function ufork() {
     git rebase upstream/$1 &&
     git push --force origin $1
 }
+
+function p() {
+    if [ -f vendor/bin/pest ]; then
+       vendor/bin/pest "$@"
+    else
+       vendor/bin/phpunit "$@"
+    fi
+ }
+
+function pf() {
+    if [ -f vendor/bin/pest ]; then
+       vendor/bin/pest --filter "$@"
+    else
+       vendor/bin/phpunit --filter "$@"
+    fi
+ }

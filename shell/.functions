@@ -130,8 +130,26 @@ function silent() {
    "$@" >& /dev/null
 }
 
+#
+# `$ clink '../path' 'owner/repo-name'`
+#
 function clink() {
-    composer config repositories.$2 '{"type": "path", "url": "'$1'"}'
+    # Get path from args or guess it
+    if [ -d "$1" ]; then
+        REPO="$1"
+    else
+        echo "Unable to find the given repository."
+        return
+    fi
+
+    # Generate random string
+    RANDOM_STRING=$(base64 /dev/urandom | tr -d '/+' | dd bs=6 count=1 2>/dev/null)
+
+    # Set Composer repo
+    composer config repositories.${RANDOM_STRING} '{"type": "path", "url": "'${REPO}'"}'
+
+    # Require repository
+    composer require $2
 }
 
 function link:foundation() {

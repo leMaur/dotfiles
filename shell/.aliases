@@ -22,6 +22,8 @@ alias ccu="clean:vendor && cc update"
 alias cci="clean:vendor && cc install"
 alias ccr="cc require"
 alias ccda="cc dump-autoload -o"
+alias c:fresh="clean:vendor && c cc && cci"
+alias c:lock="ccu --lock && commit 'deps: update composer.lock' && gp"
 alias hostfile="sudo vi /etc/hosts"
 alias mf='php artisan migrate:fresh'
 alias mfs='php artisan migrate:fresh --seed'
@@ -52,7 +54,7 @@ alias gpo="git push origin"
 alias gm="git merge"
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias nah='git reset --hard;git clean -df'
-alias commitrector="commit 'refactor: code quality assurance'"
+alias commitrefactor="commit 'refactor: code quality assurance'"
 alias commitformat="commit 'style: resolve style guide violations'"
 alias commitassets="commit 'chore: rebuild assets for prod'"
 alias commitdeps="commit 'chore: update deps'"
@@ -64,11 +66,11 @@ alias o="open ."
 alias l="ls -laF"
 
 # PhpStorm
-alias phpstorm='open -a /Users/maurizio/Applications/JetBrains\ Toolbox/PhpStorm.app "`pwd`"'
+alias phpstorm='open -a /Users/maurizio/Applications/JetBrains\ Toolbox/PhpStorm\ Early\ Access\ Program.app "`pwd`"'
 
 # PHP version
-alias switch-php80="brew unlink php@7.4 && brew link --overwrite --force php"
-alias switch-php74="brew unlink php && brew link --overwrite --force php@7.4"
+#alias switch-php80="brew unlink php@7.4 && brew link --overwrite --force php"
+#alias switch-php74="brew unlink php && brew link --overwrite --force php@7.4"
 
 # Redis
 alias flush-redis="redis-cli FLUSHALL"

@@ -37,7 +37,8 @@ alias dwf="php artisan dusk --browse --filter="
 alias sshconfig="vi ~/.ssh/config"
 alias copykey='command cat ~/.ssh/id_rsa.pub | pbcopy'
 alias copyedkey='command cat ~/.ssh/id_ed25519.pub | pbcopy'
-alias newlaravel='composer create-project laravel/laravel'
+alias newlaravel='composer create-project laravel/laravel --prefer-dist'
+alias nextlaravel='newlaravel dev-master'
 alias rector='vendor/bin/rector process'
 alias xcodei="xcode-select --install"
 alias xcodeu="softwareupdate --install xcode-select"

@@ -1,7 +1,7 @@
 # Docker
-#function ssh-docker() {
-#   docker exec -it "$@" bash
-#}
+function ssh-docker() {
+   docker exec -it "$@" bash
+}
 
 # Create a new directory and enter it
 function mkd() {
@@ -122,7 +122,7 @@ function opendb () {
 function scheduler () {
     while :; do
         php artisan schedule:run
-	echo "Sleeping 60 seconds..."
+        echo "Sleeping 60 seconds..."
         sleep 60
     done
 }
@@ -151,73 +151,6 @@ function clink() {
 
     # Require repository
     composer require $2
-}
-
-function link:foundation() {
-    # Check if already symlinked
-    [ -f .symlink_foundation ] && { echo "already symlinked"; return; }
-
-    # Get path from args or guess it
-    if [ "$1" != "" ]; then
-        FOUNDATION="$1"
-    elif [ -d ../laravel-foundation ]; then
-        FOUNDATION="../laravel-foundation"
-    elif [ -d ../../laravel-foundation ]; then
-        FOUNDATION="../../laravel-foundation"
-    else
-        echo "Unable to find `laravel-foundation`"
-        return
-    fi
-
-    # Generate random string
-    RANDOM_STRING=$(base64 /dev/urandom | tr -d '/+' | dd bs=6 count=1 2>/dev/null)
-
-    # Set Composer repo
-    composer config repositories.${RANDOM_STRING} '{"type": "path", "url": "'${FOUNDATION}'"}'
-
-    # Require arkecosystem/foundation
-    composer require arkecosystem/foundation --ignore-platform-reqs -W
-
-    # Remove node_modules folder
-    rm -rf ${FOUNDATION}/node_modules
-
-    # Symlink to arkecosystem/foundation node_modules folder
-    ln -s $(pwd)/node_modules ${FOUNDATION}/node_modules
-
-    # Create .symlink_foundation file
-    echo ${FOUNDATION} >> .symlink_foundation
-
-    # Inform user that all went ok
-    echo "${FOUNDATION} has been symlinked"
-}
-
-function unlink:foundation() {
-    # Get path from .symlink_foundation file or args or guess it
-    if [ -f .symlink_foundation ]; then
-        FOUNDATION=$(cat .symlink_foundation)
-    elif [ "$1" != "" ]; then
-        FOUNDATION="$1"
-    elif [ -d ../laravel-foundation ]; then
-        FOUNDATION="../laravel-foundation"
-    elif [ -d ../../laravel-foundation ]; then
-        FOUNDATION="../../laravel-foundation"
-    else
-        echo "Unable to find `laravel-foundation`"
-        return
-    fi
-
-    # Remove symlink
-    unlink ${FOUNDATION}/node_modules
-
-    # Remove file
-    rm -rf .symlink_foundation
-
-    # Clean up repo
-    git reset --hard
-    git clean -df
-
-    # Inform user that all went ok
-    echo "${FOUNDATION} symlink has been removed"
 }
 
 function ufork() {

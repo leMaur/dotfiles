@@ -1,48 +1,43 @@
 # PHP
-alias y:dev="yarn && yarn dev"
-alias y:prod="yarn && yarn prod"
-alias prod="yarn prod"
-alias jit="npm run watch"
-alias psql="sudo -u postgres psql"
-alias art="php artisan"
-alias tinker="php artisan tinker"
-alias clean="art optimize:clear && art view:clear"
-alias clean:vendor="rm -rf vendor"
-alias vapor="vendor/bin/vapor"
 alias sites="cd ~/Sites"
+alias psql="sudo -u postgres psql"
+alias clean:vendor="rm -rf vendor"
 alias an="vendor/bin/phpstan analyse --memory-limit=2G"
 alias fo="vendor/bin/php-cs-fixer fix"
+alias re='vendor/bin/rector process'
 alias c="composer"
 alias cu="c update"
 alias cr="c require"
 alias ci="c install"
 alias cda="c dump-autoload -o"
+alias c:fresh="clean:vendor && c && ci"
+alias c:lock="ccu --lock && commit 'deps: update composer.lock' && gp"
 alias cc="composer --ignore-platform-reqs"
-alias ccu="clean:vendor && cc update"
-alias cci="clean:vendor && cc install"
+alias ccu="cc update"
+alias cci="cc install"
 alias ccr="cc require"
 alias ccda="cc dump-autoload -o"
-alias c:fresh="clean:vendor && c cc && cci"
-alias c:lock="ccu --lock && commit 'deps: update composer.lock' && gp"
 alias hostfile="sudo vi /etc/hosts"
-alias mf='php artisan migrate:fresh'
-alias mfs='php artisan migrate:fresh --seed'
-alias phpunitw="phpunit-watcher watch"
-alias dusk:driver="vendor/laravel/dusk/bin/chromedriver-mac-arm"
-alias dusk="php artisan dusk"
-alias d="php artisan dusk"
-alias df="php artisan dusk --filter="
-alias dw="php artisan dusk --browse"
-alias dwf="php artisan dusk --browse --filter="
 alias sshconfig="vi ~/.ssh/config"
 alias copykey='command cat ~/.ssh/id_rsa.pub | pbcopy'
 alias copyedkey='command cat ~/.ssh/id_ed25519.pub | pbcopy'
-alias newlaravel='composer create-project laravel/laravel --prefer-dist'
-alias rector='vendor/bin/rector process'
 alias xcodei="xcode-select --install"
 alias xcodeu="softwareupdate --install xcode-select"
-alias sail="bash vendor/bin/sail"
 alias findport="lsof -i -P -n | grep LISTEN"
+
+# Laravel
+alias mf='php artisan migrate:fresh'
+alias mfs='php artisan migrate:fresh --seed'
+alias dusk:driver="vendor/laravel/dusk/bin/chromedriver-mac-arm"
+alias dusk="php artisan dusk"
+alias df="php artisan dusk --filter="
+alias dw="php artisan dusk --browse"
+alias dwf="php artisan dusk --browse --filter="
+alias art="php artisan"
+alias tinker="php artisan tinker"
+alias vapor="vendor/bin/vapor"
+alias sail="bash vendor/bin/sail"
+alias clean="art optimize:clear && art view:clear"
 
 # JavaScript
 alias jest="./node_modules/.bin/jest"

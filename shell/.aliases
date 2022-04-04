@@ -50,10 +50,19 @@ alias gpo="git push origin"
 alias gm="git merge"
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias nah='git reset --hard;git clean -df'
-alias commitrefactor="commit 'refactor: code quality assurance'"
-alias commitformat="commit 'style: resolve style guide violations'"
-alias commitassets="commit 'chore: rebuild assets for prod'"
-alias commitdeps="commit 'chore: update deps'"
+alias commit:refactor="commit 'refactor: code quality assurance'"
+alias commit:format="commit 'style: resolve style guide violations'"
+alias commit:assets="commit 'chore: rebuild assets for prod'"
+alias commit:deps="commit 'chore: update deps'"
+
+# Docker
+alias dock:web="docker exec -it php-fpm /bin/bash"
+alias dock:queue="docker exec -it php-queue /bin/bash"
+alias dock:db="docker exec -it mysql /bin/bash"
+alias dock:nginx="docker exec -it nginx /bin/bash"
+alias dock:es="docker exec -it elasticsearch /bin/bash"
+alias dock:sc="docker exec -it php-scheduler /bin/bash"
+alias dock:redis="docker exec -it redis /bin/bash"
 
 # Fast open
 alias o="open ."
@@ -65,7 +74,7 @@ alias l="ls -laF"
 alias phpstorm='open -a /Users/maurizio/Applications/JetBrains\ Toolbox/PhpStorm\ Early\ Access\ Program.app "`pwd`"'
 
 # PHP version
-#alias switch-php80="brew unlink php@7.4 && brew link --overwrite --force php"
+#alias switch-php="brew unlink php@7.4 && brew link --overwrite --force php"
 #alias switch-php74="brew unlink php && brew link --overwrite --force php@7.4"
 
 # Redis

@@ -112,3 +112,7 @@ alias npmnpm="npm config set registry https://registry.npmjs.org"
 
 # Restart touch bar
 alias touchbar="killall ControlStrip"
+
+# SampleNinja
+alias hot:ad="echo '{}' > public/mix-manifest.json && npm run --section=panelist dev && npm run --section=admin hot"
+alias hot:pl="echo '{}' > public/mix-manifest.json && npm run --section=admin dev && npm run --section=panelist hot"

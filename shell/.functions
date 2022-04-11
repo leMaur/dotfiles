@@ -175,3 +175,9 @@ function pf() {
        vendor/bin/phpunit --filter "$@"
     fi
  }
+
+# SampleNinja
+function dock:ninja() {
+    cd aws/dockerdevbox
+    docker-compose $@
+}

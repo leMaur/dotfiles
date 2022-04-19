@@ -177,7 +177,8 @@ function pf() {
  }
 
 # SampleNinja
-function dock:ninja() {
+function ninja() {
     cd aws/dockerdevbox
     docker-compose $@
+    cd ../..
 }

@@ -5,13 +5,13 @@ alias an="vendor/bin/phpstan analyse --memory-limit=2G"
 alias fo="vendor/bin/php-cs-fixer fix"
 alias re='vendor/bin/rector process'
 alias c="composer"
-alias cu="c update"
-alias cr="c require"
-alias ci="c install"
-alias cda="c dump-autoload -o"
+alias cu="composer update"
+alias cr="composer require"
+alias ci="composer install"
+alias cda="composer dump-autoload -o"
 alias c:fresh="clean:vendor && composer && composer install"
-alias c:uplock="ccu --lock && commit 'deps: update composer.lock'"
-alias c:out="c outdated -D"
+alias c:uplock="composer update --lock && commit 'deps: update composer.lock'"
+alias c:out="composer outdated -D"
 alias hostfile="sudo vi /etc/hosts"
 alias sshconfig="vi ~/.ssh/config"
 alias copykey='command cat ~/.ssh/id_rsa.pub | pbcopy'
@@ -33,6 +33,7 @@ alias tinker="php artisan tinker"
 alias vapor="vendor/bin/vapor"
 alias sail="bash vendor/bin/sail"
 alias clean="art optimize:clear && art view:clear"
+alias mw="npm run watch"
 
 # Laravel Sail
 alias s:up="sail up -d"
@@ -71,7 +72,7 @@ alias commit:format="commit 'style: resolve style guide violations'"
 alias commit:assets="commit 'chore: rebuild assets for prod'"
 alias commit:deps="commit 'chore: update deps'"
 alias commit:models="commit 'chore: update models php doc-block'"
-alias sail:r="sail composer models && commit:models && sail composer refactor && commit:refactor && sail composer format && commit:format && c analyse"
+alias commit:deploy='git commit --allow-empty -m "Trigger Deploy"'
 
 # Fast open
 alias o="open ."

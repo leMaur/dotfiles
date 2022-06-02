@@ -69,8 +69,8 @@ alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset
 alias nah='git reset --hard;git clean -df'
 alias commit:refactor="commit 'refactor: code quality assurance'"
 alias commit:format="commit 'style: resolve style guide violations'"
-alias commit:assets="commit 'chore: rebuild assets for prod'"
-alias commit:deps="commit 'chore: update deps'"
+alias commit:assets="commit 'chore: update javascript dependencies'"
+alias commit:deps="commit 'chore: update php dependencies'"
 alias commit:models="commit 'chore: update models php doc-block'"
 alias commit:deploy='git commit --allow-empty -m "Trigger Deploy"'
 

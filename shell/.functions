@@ -55,7 +55,7 @@ function commit() {
 
 # Squash all commits into single one with default message
 function squash() {
-    git reset $(git commit-tree HEAD^{tree} -m \"\${1:-wip}");
+    git reset $(git commit-tree HEAD^{tree} -m \"\${1:-wip}\")
 }
 
 #  Toggle xdebug

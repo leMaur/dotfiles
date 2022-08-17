@@ -8,24 +8,6 @@ function mkd() {
    mkdir -p "$@" && cd "$@"
 }
 
-# Start an HTTP server from a directory, optionally specifying the port
-#function server() {
-#	local port="${1:-9000}"
-#	sleep 2 && open "http://localhost:${port}/" &
-#	# Set the default Content-Type to `text/plain` instead of `application/octet-stream`
-#	# And serve everything as UTF-8 (although not technically correct, this doesn’t break anything for binary files)
-#	python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port"
-#}
-
-# Start a PHP server from a directory, optionally specifying the port
-# (Requires PHP 5.4.0+.)
-#function phpserver() {
-#	local port="${1:-4000}"
-#	local ip=$(ipconfig getifaddr en0)
-#	sleep 2 && open "http://${ip}:${port}/" &
-#	php -S "${ip}:${port}"
-#}
-
 # All the dig info
 function digga() {
 	dig +nocmd "$1" any +multiline +noall +answer
@@ -40,9 +22,9 @@ function archive () {
    zip -r "$1".zip -i "$1" ;
 }
 
-#function removehost() {
-#   ssh-keygen -R "$1"
-#}
+function removehost() {
+   ssh-keygen -R "$1"
+}
 
 function weather() {
    city="$1"
@@ -59,10 +41,6 @@ function scrapeUrl() {
     wget --adjust-extension --convert-links --page-requisites --span-hosts --no-host-directories "$1"
 }
 
-#function rector() {
-#   docker run -v $(pwd):/project rector/rector:latest process /project/$1 --set php80 --autoload-file /project/vendor/autoload.php
-#}
-
 #  Commit everything
 function commit() {
   commitMessage="$1"
@@ -73,6 +51,11 @@ function commit() {
 
   git add .
   eval "git commit -a -m '${commitMessage}'"
+}
+
+# Squash all commits into single one with default message
+function squash() {
+    git reset $(git commit-tree HEAD^{tree} -m \"\${1:-wip}");
 }
 
 #  Toggle xdebug
@@ -154,10 +137,17 @@ function clink() {
 }
 
 function ufork() {
-    git fetch upstream &&
-    git checkout $1 &&
-    git rebase upstream/$1 &&
+    git fetch upstream
+    git checkout $1
+    git rebase upstream/$1
     git push --force origin $1
+}
+
+function merge2prod() {
+    git checkout production
+    git merge staging
+    git push
+    git checkout staging
 }
 
 function p() {

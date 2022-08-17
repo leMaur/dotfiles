@@ -100,8 +100,9 @@ systemsetup -settimezone "Europe/Geneva" > /dev/null
 # Disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
-# Stop iTunes from responding to the keyboard media keys
-#launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
+# Increase key repeat rate (System Preferences > Keyboard > Key Repeat/Delay Until Repeat)
+defaults write -g InitialKeyRepeat -int 10 # normal minimum is 15 (225ms)
+defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30ms)
 
 ###############################################################################
 # Screen                                                                      #

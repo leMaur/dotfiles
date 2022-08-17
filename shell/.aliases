@@ -84,8 +84,8 @@ alias l="ls -laF"
 alias phpstorm='open -a /Users/maurizio/Applications/JetBrains\ Toolbox/PhpStorm\ Early\ Access\ Program.app "`pwd`"'
 
 # PHP version
-#alias switch-php="brew unlink php@7.4 && brew link --overwrite --force php"
-#alias switch-php74="brew unlink php && brew link --overwrite --force php@7.4"
+alias switch-php="brew unlink php@7.4 && brew link --overwrite --force php"
+alias switch-php74="brew unlink php && brew link --overwrite --force php@7.4"
 
 # Redis
 alias flush-redis="redis-cli FLUSHALL"
